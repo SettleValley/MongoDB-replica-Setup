@@ -6,6 +6,8 @@ services:
     image: mongo:4.0-xenial
     expose:
       - 27017
+    ports:
+      - 27017:27017
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
   mongo2:
@@ -14,6 +16,8 @@ services:
     image: mongo:4.0-xenial
     expose:
       - 27017
+    ports:
+      - 27018:27017
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
   mongo3:
@@ -22,13 +26,17 @@ services:
     image: mongo:4.0-xenial
     expose:
       - 27017
+    ports:
+      - 27019:27017
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
-  arbiter:
-    hostname: arbiter
-    container_name: arbiter
+  mongosetup:
     image: mongo:4.0-xenial
-    expose:
-      - 27017
-    restart: always
-    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    volumes:
+      - .:/scripts
+    restart: "no"
+    entrypoint: [ "bash", "/scripts/mongo_setup.sh"]
