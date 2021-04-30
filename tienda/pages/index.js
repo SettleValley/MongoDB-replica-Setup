@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import { connectToDatabase } from '../util/mongodb'
+import { useSession, signIn, signOut } from 'next-auth/client'
 
 export default function Home({ isConnected }) {
+  const [session, loading] = useSession();
+  if(loading){
+    return <p>Cargando hermano...</p>
+  }
   return (
     <div className="container">
       <Head>
@@ -13,6 +18,16 @@ export default function Home({ isConnected }) {
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js with MongoDB!</a>
         </h1>
+
+        {!session && <>
+          <h1>No estas logeado</h1> <br/>
+          <button onClick={signIn}>Iniciar Sesion</button>
+        </>}
+
+        {session && <>
+        <h1>Estas logeado wapo {session.user.email}</h1>
+        <button onClick={signOut}>Salir de sesion</button>
+        </>}
 
         {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>

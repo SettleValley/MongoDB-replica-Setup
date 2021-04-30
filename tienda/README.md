@@ -6,6 +6,10 @@ Se debio realizar unos cambios en nuestra reglas de hosts `/etc/hosts`, agregand
 ``mongo "mongodb://mongo1:27017,mongo2:27018,mongo3:27019/?replicaSet=rs0"``
 
 Guia para la creacion de la app `https://blog.logrocket.com/using-authentication-in-next-js/`
+https://www.youtube.com/watch?v=aAupumVpqcE&ab_channel=MongoDB
+https://www.youtube.com/watch?v=WSr0GcBF7Ag&list=PL_kAgwZgMfWx0ToY-XKCcAm9JH5UlTA-W&index=3&ab_channel=JasonRivera
+https://app.sendgrid.com/
+https://www.youtube.com/watch?v=61sMBUOUVww&ab_channel=PragmaticReviews
 
 ## Example app using MongoDB
 
