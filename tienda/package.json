@@ -7,12 +7,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
     "mongodb": "^3.5.9",
     "next": "latest",
     "next-auth": "^3.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reflect-metadata": "^0.1.13",
+    "swr": "^0.5.6",
     "typeorm": "0.2.28"
   },
   "license": "MIT"

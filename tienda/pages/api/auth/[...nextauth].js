@@ -3,7 +3,6 @@ import Providers from 'next-auth/providers'
 import Adapters from "next-auth/adapters"
 
 
-import Models from "../../../models"
 
 const options = {
     site: process.env.NEXTAUTH_URL,
