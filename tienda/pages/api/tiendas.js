@@ -15,8 +15,14 @@ export default async function handler(req, res){
             break;
         case 'POST':
             try {
-                const supermarket = await db.collection("SuperMarket").create(req.body);
-                res.status(201).json({success: true, data: supermarket});
+                console.log(req.body);
+                await db.collection("SuperMarket").insertOne(req.body)
+                        .then(result =>{
+                            console.log(`Successfully inserted item with _id: ${result}`)
+                            res.status(201).json({success: true, data: result})
+                        })
+                        .catch(err => console.error(`Failed to insert item: ${err}`))
+
             } catch (error) {
                 res.status(400).json({success: false});
             }
@@ -25,7 +31,4 @@ export default async function handler(req, res){
             res.status(400).json({success: false});
             break;
     }
-    
-
-    res.json(data)
 }

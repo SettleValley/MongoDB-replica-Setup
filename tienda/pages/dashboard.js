@@ -1,10 +1,12 @@
 import { getSession } from 'next-auth/client'
+import CreateSuperMarket from '../components/CreateSuperMarket'
 
 export default function Dashboard({ user }) {
     return (
       <div>
         <h1>Dashboard</h1>
         <p>Welcome {user.email}</p>
+        <CreateSuperMarket/>
       </div>
     )
   }

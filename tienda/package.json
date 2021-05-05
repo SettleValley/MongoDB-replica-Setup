@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^5.0.0-beta3",
     "mongodb": "^3.5.9",
+    "mongoose": "^5.12.7",
     "next": "latest",
     "next-auth": "^3.19.2",
     "react": "^16.13.1",
